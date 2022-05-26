@@ -2,11 +2,11 @@
 
 Computer art and animations created using [Voronoi diagrams](https://en.wikipedia.org/wiki/Voronoi_diagram) and [Quadtrees](https://en.wikipedia.org/wiki/Quadtree).
 
-See [here](https://gitlab.com/rileythomp14/voronoi/-/blob/master/USAGE.md) for how to use.
+See [here](https://github.com/rileythomp/voronoi/blob/master/USAGE.md) for how to use.
 
-Voronoi diagrams and quadtrees can be used together as a partitioning and colouring algorithm to give images a stained glass look.
+Voronoi diagrams and quadtrees can be used together as a partitioning and colouring algorithm to give images a mosaic look.
 
-| Original                        | Stained Glass Image                       | Stained Glass Gif              |                 
+| Original                        | Mosaic Image                       | Mosaic Gif              |                 
 | ---                             | ---                                       | ---                            |     
 | ![parrot](images/parrots.png)   | ![parrotg](images/stainglass/parrots.png) | ![parrotgif](clips/stainglass/parrots.gif) |
 | ![treeimg](images/tree.png)     | ![treesg](images/stainglass/tree.png)     | ![treegif](clips/stainglass/tree.gif)      |
@@ -15,7 +15,7 @@ Voronoi diagrams and quadtrees can be used together as a partitioning and colour
 
 See [Examples.md](https://gitlab.com/rileythomp14/voronoi/-/blob/master/Examples.md) for more examples.
 
-A Voronoi diagram is an image divided into a given number of regions, where each region is defined as a "site" and all the points that are closer to that site than any other. Here is an example of adding sites (shown by a black dot) 1 by 1 to an image and giving each region a random colour.
+A Voronoi diagram is an image divided into a given number of regions, where each region is defined by a single point (a "site") and all the points that are closer to that site than any other. Here is an example of adding sites (shown by a black dot) 1 by 1 to an image and giving each region a random colour.
 
 <img src="clips/voronoi/adding.gif" width="420"/>
 
@@ -38,7 +38,7 @@ In the examples above, distance to a site was determined using [Euclidean distan
 | ![tree](images/stainglass/tree.png)     | ![tree3](images/stainglass/tree3.png)   | ![tree5](images/stainglass/tree5.png)   |
 | ![tree2](images/stainglass/tree2.png)   | ![tree4](images/stainglass/tree4.png)   | ![tree6](images/stainglass/tree6.png)   |
 
-A quadtree is a tree data structure where each node has 4 children. It is used to represent the image by having each quadrant be the average colour of the image in that region. An metric similar to standard deviation for colour is used split the quadrant with the largest colour error. This has the effect of gradually increasing resolution. 
+A quadtree is a tree data structure where each node has 4 children. It is used to represent the image by having each quadrant be the average colour of the image in that region. A metric similar to standard deviation for colour is used split the quadrant with the largest colour error. This has the effect of gradually increasing resolution. 
 
 | Original                       | Quadtree Image                      | Quadtree Gif                         |                 
 | ---                            | ---                                 | ---                                  |    
