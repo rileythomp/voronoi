@@ -32,6 +32,7 @@ const (
 	ImgDecodingErr = "error decoding request image: %s"
 	ImgResponseErr = "error responding with image: %s"
 	VidResponseErr = "error responding with video: %s"
+	ImgTooLargeErr = "image must be less than 1000px in height and width"
 	Bearer         = "Bearer"
 )
 
@@ -218,6 +219,11 @@ func StainedGlass2(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		logger.Errorf(ImgDecodingErr, err)
 		RespondWithError(w, fmt.Errorf(ImgDecodingErr, err), http.StatusBadRequest)
+		return
+	}
+	if img.Bounds().Dx() > 1000 || img.Bounds().Dy() > 1000 {
+		logger.Errorf(ImgTooLargeErr)
+		RespondWithError(w, fmt.Errorf(ImgTooLargeErr), http.StatusBadRequest)
 		return
 	}
 	vp, err := getVoronoiParams(r.URL.RawQuery)
